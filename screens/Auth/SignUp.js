@@ -5,7 +5,7 @@ import Btn from "../../components/Auth/Btn";
 import Input from "../../components/Auth/Input";
 import DismissKeyboard from "../../components/Auth/DismissKeyboard";
 import { isEmail } from "../../utils";
-import { createAccount } from "../../api";
+import api from "../../api";
 
 const Container = styled.View`
   flex: 1;
@@ -43,7 +43,7 @@ export default ({ navigation: { navigate } }) => {
     isFormValid();
     setLoading(true);
     try {
-      const { status } = await createAccount({
+      const { status } = await api.createAccount({
         first_name: firstName,
         last_name: lastName,
         email,
